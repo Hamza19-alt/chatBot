@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historique des Conversations</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <img src="{{ logo_url }}" alt="Logo Sup'RH">
+        <h1>Historique des Conversations</h1>
+        <nav>
+            <a href="/">Chat</a> | <a href="/history">Historique</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="history-container">
+            {% if history %}
+                <ul>
+                    {% for message in history %}
+                        <li>
+                            <b>Vous:</b> {{ message.user }}<br>
+                            <b>Chatbot:</b> {{ message.bot }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Aucune conversation pour le moment.</p>
+            {% endif %}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sup'RH. </p>
+    </footer>
+</body>
+</html>
